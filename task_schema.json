@@ -1,0 +1,42 @@
+{
+  "$id": "https://example.com/todo-app-tasks-schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TasksSchema",
+  "type": "object",
+  "properties": {
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "completed": {
+            "type": "boolean",
+            "description": "Indicates whether the task is completed"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of when the task was created"
+          },
+          "details": {
+            "type": "string",
+            "description": "Details about the task"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the task"
+          },
+          "user": {
+            "type": "string",
+            "description": "Reference to the user associated with the task",
+            "pattern": "^/users/[a-zA-Z0-9]+$"
+          }
+        },
+        "required": ["completed", "created", "details", "title", "user"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["tasks"],
+  "additionalProperties": false
+}
