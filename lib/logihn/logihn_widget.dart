@@ -777,7 +777,7 @@ class _LogihnWidgetState extends State<LogihnWidget>
                                   .doc(user.uid)
                                   .update({
                                 ...createUsersRecordData(
-                                  email: '',
+                                  email: _model.suemTextController.text,
                                 ),
                                 ...mapToFirestore(
                                   {
