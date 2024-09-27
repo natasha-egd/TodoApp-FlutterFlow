@@ -49,41 +49,44 @@ class _TasksWidgetState extends State<TasksWidget> {
           },
           backgroundColor: FlutterFlowTheme.of(context).secondary,
           elevation: 8.0,
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(24.0),
-              border: Border.all(
-                color: FlutterFlowTheme.of(context).primaryText,
-                width: 1.0,
+          child: Align(
+            alignment: const AlignmentDirectional(0.0, 0.0),
+            child: Container(
+              width: double.infinity,
+              height: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(24.0),
+                border: Border.all(
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  width: 1.0,
+                ),
               ),
-            ),
-            child: InkWell(
-              splashColor: Colors.transparent,
-              focusColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onTap: () async {
-                await showModalBottomSheet(
-                  isScrollControlled: true,
-                  backgroundColor: Colors.transparent,
-                  context: context,
-                  builder: (context) {
-                    return GestureDetector(
-                      onTap: () => FocusScope.of(context).unfocus(),
-                      child: Padding(
-                        padding: MediaQuery.viewInsetsOf(context),
-                        child: const AddtaskWidget(),
-                      ),
-                    );
-                  },
-                ).then((value) => safeSetState(() {}));
-              },
-              child: Icon(
-                Icons.add_rounded,
-                color: FlutterFlowTheme.of(context).primaryText,
-                size: 24.0,
+              child: InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  await showModalBottomSheet(
+                    isScrollControlled: true,
+                    backgroundColor: Colors.transparent,
+                    context: context,
+                    builder: (context) {
+                      return GestureDetector(
+                        onTap: () => FocusScope.of(context).unfocus(),
+                        child: Padding(
+                          padding: MediaQuery.viewInsetsOf(context),
+                          child: const AddtaskWidget(),
+                        ),
+                      );
+                    },
+                  ).then((value) => safeSetState(() {}));
+                },
+                child: Icon(
+                  Icons.add_rounded,
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  size: 24.0,
+                ),
               ),
             ),
           ),
