@@ -794,6 +794,21 @@ class _LogihnWidgetState extends State<LogihnWidget>
 
                               context.goNamedAuth(
                                   'onboarding', context.mounted);
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Welcome! Please check your email for a welcome message.',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: const Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                ),
+                              );
                             },
                             text: 'Sign Up',
                             options: FFButtonOptions(
