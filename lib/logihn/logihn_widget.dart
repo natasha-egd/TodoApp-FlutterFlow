@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -708,6 +709,10 @@ class _LogihnWidgetState extends State<LogihnWidget>
                         if (_model.tabBarCurrentIndex == 1)
                           FFButtonWidget(
                             onPressed: () async {
+                              await SendWelcEmailCall.call(
+                                email: _model.liemTextController.text,
+                              );
+
                               GoRouter.of(context).prepareAuthEvent();
 
                               final user = await authManager.signInWithEmail(
